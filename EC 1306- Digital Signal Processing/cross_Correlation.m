@@ -15,6 +15,8 @@
 clc;
 X1 = [1,2,1,2];
 X2 = [2,2,1,-1];
+Xs1 = X1;
+Xs2 = X2;
 k = length(X1)+length(X2)-1;
 cross = zeros(1,k);
 X1 = [ X1, zeros(1,k-length(X1))];
@@ -29,9 +31,22 @@ for i=1:1:k
 end
 disp("Cross Correlation will be ");
 disp(cross);
+figure("Cross Corelation", "Cross Corelation")
+subplot(3, 1, 1)
+stem(Xs1);
+xlim([-1 length(Xs1)+1]);
+ylim([min(Xs1)-1 max(Xs1)+1])
+title("Series 1");
+subplot(3, 1, 2)
+stem(Xs2);
+xlim([-1 length(Xs2)+1]);
+ylim([min(Xs2)-1 max(Xs2)+1])
+title("Series");
+subplot(3, 1, 3)
 stem(cross);
 xlim([-1 k+1]);
 ylim([min(cross)-1 max(cross)+1])
+
 title("Cross Correlation")
 
 %End of Code
